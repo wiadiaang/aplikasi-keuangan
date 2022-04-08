@@ -3,7 +3,7 @@
 
                 <div class="side-nav-inner">
                     <div class="side-nav-logo">
-                        <a href="index.html">
+                        <a href="{{ url('/dashboard')}}">
                             <div class="logo logo-dark" style="background-image: url('assets/images/logo/logo.png')"></div>
                             <div class="logo logo-white" style="background-image: url('assets/images/logo/logo-white.png')"></div>
                         </a>
@@ -15,7 +15,7 @@
                     </div>
                     <ul class="side-nav-menu scrollable">
                         <li class="nav-item active">
-                            <a class="mrg-top-30" href="index.html">
+                            <a class="mrg-top-30" href="{{ url('/dashboard')}}">
                                 <span class="icon-holder">
 										<i class="ti-home"></i>
 									</span>
@@ -34,13 +34,16 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="email.html">Entitas</a>
+                                    <a href="{{ url('/type')}}">Type Entitas</a>
                                 </li>
                                 <li>
-                                    <a href="social.html">User</a>
+                                    <a href="{{ url('/entitas')}}">Entitas</a>
                                 </li>
                                 <li>
-                                    <a href="calendar.html">Rekening</a>
+                                    <a href="{{ url('/user')}}">User</a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/rekening')}}">Rekening</a>
                                 </li>
                                
                             </ul>
@@ -63,16 +66,16 @@
                                     <a href="buttons.html">Rekening</a>
                                 </li> -->
                                 <li>
-                                    <a href="modals.html">Saldo Awal</a>
+                                    <a href="{{ url('/saldo')}}">Saldo Awal</a>
                                 </li>
                                 <li>
-                                    <a href="tabs.html">Jurnal Umum</a>
+                                    <a href="{{ url('/jurnalumum')}}">Jurnal Umum</a>
                                 </li>
                                 <li>
-                                    <a href="progress-slider.html">Buku Besar</a>
+                                    <a href="{{ url('/bukubesar')}}">Buku Besar</a>
                                 </li>
                                 <li>
-                                    <a href="notification.html">Jurnal Penyelesaian</a>
+                                    <a href="{{ url('/jurnalpenyesuaian')}}">Jurnal Penyelesaian</a>
                                 </li>
                                
                             </ul>
@@ -89,19 +92,19 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="form-elements.html">Buku Besar</a>
+                                    <a href="{{ url('/laporan')}}">Buku Besar</a>
                                 </li>
                                 <li>
-                                    <a href="form-layouts.html">Neraca Saldo</a>
+                                    <a href="{{ url('/laporan')}}">Neraca Saldo</a>
                                 </li>
                                 <li>
-                                    <a href="form-wizard.html">Neraca Lajur</a>
+                                    <a href="{{ url('/laporan')}}">Neraca Lajur</a>
                                 </li>
                                 <li>
-                                    <a href="form-wizard.html">Laba Rugi</a>
+                                    <a href="{{ url('/laporan')}}">Laba Rugi</a>
                                 </li>
                                 <li>
-                                    <a href="form-wizard.html">Neraca</a>
+                                    <a href="{{ url('/laporan')}}">Neraca</a>
                                 </li>
                             </ul>
                         </li>
@@ -117,7 +120,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="basic-table.html">Jurnal</a>
+                                    <a href="{{ url('/laporan')}}">Jurnal</a>
                                 </li>
                               
                             </ul>

@@ -21,3 +21,5 @@ Route::get('/register', function () {
 });
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+Route::get('/type', [App\Http\Controllers\TypeController::class, 'index'])->name('type');
+Route::get('/entitas', [App\Http\Controllers\EntitasController::class, 'index'])->name('entitas');
