@@ -55,11 +55,18 @@
                                                 <h1 class="mrg-btm-30">Create Your account</h1>
                                                 <form>
                                                     <div class="form-group">
-                                                        <label class="text-normal text-dark">User Name</label>
+                                                        <label class="text-normal text-dark">Entitas Syariah</label>
                                                         <input type="text" class="form-control">
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="text-normal text-dark">Email Address</label>
+                                                        <label class="text-normal text-dark">Type Entitas</label>
+                                                        <select name="type" class="form-control">
+                                                            <option value="">Masjid</option>
+                                                            <option value="">Pesantren</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="text-normal text-dark">Email</label>
                                                         <input type="email" class="form-control">
                                                     </div>
                                                     <div class="form-group">

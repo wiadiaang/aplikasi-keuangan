@@ -10,7 +10,7 @@
                         <div class="page-title">
                         <div class="row">
                                  <div class="col-md-9">
-                                    <h4>Data Type Entitas</h4>
+                                    <h4>Daftar Rekening</h4>
                                  </div>
                                  <div class="col-md-3 right ">
                                     <div class="pull-right">
@@ -32,10 +32,11 @@
                                                 <thead>
                                                     <tr>
                                                         <th></th>
-
-                                                        <th>Entitas</th>
-                                                        <th>Deskripsi</th>
-                                                        <th>Tanggal Dibuat</th>
+                                                        <th>Kode</th>
+                                                        <th>Nama Rekening</th>
+                                                        <th>Induk </th>
+                                                        <th>Level</th>
+                                                        <th>Status</th>
                                                        
                                                         <th></th>
                                                     </tr>
@@ -98,19 +99,18 @@
 <script>
 $(function () {
     
-    var table = $('#data-table-type').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ route('getType') }}",
-        columns: [
-            { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-            {data: 'entitas_type_name', name: 'entitas_type_name'},
-            {data: 'entitas_deskripsi', name: 'entitas_deskripsi'},
-            {data: 'date_created', name: 'date_created'},
+    // var table = $('#data-table-type').DataTable({
+    //     processing: true,
+    //     serverSide: true,
+    //     ajax: "{{ route('getType') }}",
+    //     columns: [
+    //         {data: '', name: ''},
+    //         {data: 'Entitas_type_name', name: 'Entitas_type_name'},
+    //         {data: 'entitas_deskripsi', name: 'entitas_deskripsi'},
            
-            {data: 'action', name: 'action', orderable: false, searchable: false},
-        ]
-    });
+    //         {data: 'action', name: 'action', orderable: false, searchable: false},
+    //     ]
+    // });
     
   });
 </script>

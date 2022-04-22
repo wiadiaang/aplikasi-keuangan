@@ -2,7 +2,8 @@
 @extends('layouts.app')
 
 @section('content')
-
+   <!-- Content Wrapper START -->
+<div class="main-content">
 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-lg-3">
@@ -564,6 +565,40 @@
                                     </div>
 </div>
 
+</div>
+<!-- Content Wrapper END -->
 
+    <!-- Footer START -->
+    <footer class="content-footer">
+                                <div class="footer">
+                                    <div class="copyright">
+                                        <span>Copyright © 2022 <b class="text-dark">Keusya</b>. All rights reserved.</span>
+                                        <span class="go-right">
+                                                <a href="#" class="text-gray mrg-right-15">Term &amp; Conditions</a>
+                                                <a href="#" class="text-gray">Privacy &amp; Policy</a>
+                                            </span>
+                                    </div>
+                                </div>
+                            </footer>
+                            <!-- Footer END -->
+                            </div>
+                        <!-- Page Container END -->
+
+            </div>
+
+
+    </div>
+
+    <script src="{{ asset('assets/js/vendor.js') }}"></script>
+    <script src="{{ asset('assets/js/app.min.js') }}"></script>
+    <!-- page plugins js -->
+    <script src="{{ asset('bower_components/bower-jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/maps/jquery-jvectormap-us-aea.js') }}"></script>
+    <script src="{{ asset('bower_components/d3/d3.min.js') }}"></script>
+    <script src="{{ asset('bower_components/nvd3/build/nv.d3.min.js') }}"></script>
+    <script src="{{ asset('bower_components/jquery.sparkline/index.js') }}"></script>
+
+    <script src="{{ asset('bower_components/chart.js/dist/Chart.min.js') }}"></script>
+    <script src="{{ asset('assets/js/dashboard/dashboard.js') }}"></script>
 
 @endsection
