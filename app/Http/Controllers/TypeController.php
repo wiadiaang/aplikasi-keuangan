@@ -17,7 +17,7 @@ class TypeController extends Controller
       
         //  return view('entitas type');
           return view('entitas/type',[
-              "title" => "Type Entitas-keusya",
+              "title" => "Type Entitas",
               "keusya" => "" 
           ]);
           
