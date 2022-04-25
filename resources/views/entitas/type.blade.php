@@ -14,10 +14,13 @@
                                  </div>
                                  <div class="col-md-3 right ">
                                     <div class="pull-right">
-                                            <a href="#" class="btn btn-sm btn-info ">
+                                  
+                                            <a href="#" data-toggle="modal" data-target="#modal-lg" class="btn btn-sm btn-info ">
                                                                     <i class="ti-plus pdd-right-5"></i>
                                                                     <span>Tambah</span>
-                                                </a>
+                                            </a>
+
+
                                     </div>
                                         
                                 </div>
@@ -58,21 +61,75 @@
                     </div>
 <!-- Content Wrapper END -->
 
-    <!-- Footer START -->
-    <footer class="content-footer">
-                                <div class="footer">
-                                    <div class="copyright">
-                                        <span>Copyright © 2022 <b class="text-dark">Keusya</b>. All rights reserved.</span>
-                                        <span class="go-right">
-                                                <a href="#" class="text-gray mrg-right-15">Term &amp; Conditions</a>
-                                                <a href="#" class="text-gray">Privacy &amp; Policy</a>
-                                            </span>
+                <div class="modal fade" id="modal-lg">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="card-heading border bottom">
+                                        <h4 class="card-title">Tambah Data Tipe Entitas</h4>
                                     </div>
                                 </div>
-                            </footer>
-                            <!-- Footer END -->
+                                <div class="modal-body">
+                                    <div class="padding-15">
+                                     
+                                            <div class="row">
+                                                    <div class="col-md-8 ml-auto mr-auto">
+                                                        <form>
+                                        
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Entitas Type</label>
+                                                                        <input type="text" name="entitas_name" placeholder="entitas type name" class="form-control" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Deskripsi</label>
+                                                                        <textarea class="form-control" placeholder="deskripsi">
+
+                                                                        </textarea>
+
+                                                                        <!-- <input type="password" placeholder="Password" class="form-control"> -->
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                               
+                                                                <div class="col-md-12 col-xs-6">
+                                                                    <div class="text-right mrg-top-5">
+                                                                        <button type="submit" class="btn btn-info">Simpan</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                       
+                                    </div>
+                                </div>
                             </div>
-                        <!-- Page Container END -->
+                        </div>
+                </div>
+
+    <!-- Footer START -->
+                    <footer class="content-footer">
+                                                <div class="footer">
+                                                    <div class="copyright">
+                                                        <span>Copyright © 2022 <b class="text-dark">Keusya</b>. All rights reserved.</span>
+                                                        <span class="go-right">
+                                                                <a href="#" class="text-gray mrg-right-15">Term &amp; Conditions</a>
+                                                                <a href="#" class="text-gray">Privacy &amp; Policy</a>
+                                                            </span>
+                                                    </div>
+                                                </div>
+                    </footer>
+    <!-- Footer END -->
+                            </div>
+    <!-- Page Container END -->
 
             </div>
 

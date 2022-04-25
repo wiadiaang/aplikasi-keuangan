@@ -13,12 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth/login');
-});
-Route::get('/register', function () {
-    return view('auth/register');
-});
+Route::get('/', [App\Http\Controllers\AuthController::class, 'index'])->name('login');  // login
+Route::get('/register', [App\Http\Controllers\AuthController::class, 'register'])->name('register'); // register
+Route::post('/register/post', [App\Http\Controllers\AuthController::class, 'register_action'])->name('register.post'); // register
+
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
@@ -30,6 +28,7 @@ Route::get('/entitas', [App\Http\Controllers\EntitasController::class, 'index'])
 
 // user
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
+Route::post('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
 
 // rekekning
 Route::get('/rekening', [App\Http\Controllers\RekeningController::class, 'index'])->name('rekening');

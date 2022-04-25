@@ -21,10 +21,10 @@ class TypeController extends Controller
               "keusya" => "" 
           ]);
           
-      }
+    }
 
       // parsing data untuk datatable
-      public function getType(){
+    public function getType(){
         $result = DB::table("entitas_type")->get();
         return DataTables::of($result)
                 ->addIndexColumn()
@@ -38,5 +38,11 @@ class TypeController extends Controller
                 // })
                 ->rawColumns(['action'])
                 ->make(true);
+    }
+
+    public function create()
+    {
+
+        
     }
 }

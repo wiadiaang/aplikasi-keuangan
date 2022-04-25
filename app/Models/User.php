@@ -5,7 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class user extends Model
+class User extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id', 'entitas_id', 'full_name', 'email','no_phone', 'password', 'profile', 'date_created','date_modified', 'created_by', 'modified_by','status'
+    ];
+
+    public $timestamps = false;
+    protected $primaryKey = 'user_id';
+
+    protected $table = 'user';
+    public $incrementing = false;
 }
