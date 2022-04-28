@@ -6,6 +6,7 @@
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <link href="{{ asset('assets/global/plugins/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/global/plugins/bootstrap-toastr/toastr.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
 
 @endsection
@@ -27,7 +28,11 @@
                         <!-- END PAGE TITLE -->
                         <!-- BEGIN PAGE TOOLBAR -->
                         <div class="page-toolbar">
-                          
+                            <div class="btn-group">
+                                    <a href="{{ url('/type/new')}}" class="btn sbold green" >
+                                        Tambah Baru 
+                                    </a>
+                            </div>
                         </div>
                         <!-- END PAGE TOOLBAR -->
                     </div>
@@ -67,7 +72,7 @@
                                                 <th>Deskripsi</th>
                                                 <th>Tanggal Dibuat</th>
 
-                                                <th></th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -105,18 +110,19 @@
         <script src="{{ asset('assets/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL SCRIPTS -->
-        <script src="{{ asset('assets/global/scripts/app.min.js') }}" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-toastr/toastr.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+           <!-- BEGIN THEME GLOBAL SCRIPTS -->
+           <script src="{{ asset('assets/global/scripts/app.min.js') }}" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="../assets/pages/scripts/ui-toastr.min.js" type="text/javascript"></script>
+    
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="{{ asset('assets/pages/scripts/table-datatables-responsive.min.js') }}" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
 
-        <!-- page plugins js -->
-        <!-- <script src="{{ asset('bower_components/datatables/media/js/jquery.dataTables.js') }}"></script> -->
 
-        <!-- page js -->
-        <!-- <script src="{{ asset('assets/js/table/data-table.js') }}"></script> -->
 
         <script>
         $(function () {
@@ -137,5 +143,18 @@
             
         });
         </script>
+
+            @if (Session('success'))
+            <script>
+                toastr.success("{!! Session::get('success') !!}");
+            </script>
+
+            @endif
+
+            @if (session('error'))
+            <script>
+            toastr.error("{!! Session::get('error') !!}");
+            </script>
+            @endif
 
 @endsection

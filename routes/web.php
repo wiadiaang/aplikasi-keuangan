@@ -23,8 +23,11 @@ Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'inde
 // Route Type Entitas
 Route::get('/type', [App\Http\Controllers\TypeController::class, 'index'])->name('type');
 Route::get('/type/get', [App\Http\Controllers\TypeController::class, 'getType'])->name('getType');
+Route::get('/type/new', [App\Http\Controllers\TypeController::class, 'createnew'])->name('createnew');
+Route::post('/type/store', [App\Http\Controllers\TypeController::class, 'store'])->name('type.store');
 
 Route::get('/entitas', [App\Http\Controllers\EntitasController::class, 'index'])->name('entitas');
+Route::get('/entitas/get', [App\Http\Controllers\EntitasController::class, 'getEntitas'])->name('getEntitas');
 
 // user
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
