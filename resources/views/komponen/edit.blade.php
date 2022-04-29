@@ -53,7 +53,7 @@
                             <div class="portlet box green">
                                             <div class="portlet-title">
                                                 <div class="caption">
-                                                    <i class="fa fa-gift"></i>Tambah Type Entitas Baru</div>
+                                                    <i class="fa fa-gift"></i>Tambah Komponen</div>
                                                 <div class="tools">
                                                     
                                                     <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
@@ -62,13 +62,16 @@
                                             </div>
                                             <div class="portlet-body form">
                                                 <!-- BEGIN FORM-->
-                                                <form action="{{ route('type.store') }}"  method="POST" class="form-horizontal" >
-                                                @csrf    
+                                                <form action="{{ route('komponen.update',$post->komponen_id) }}"  method="POST" class="form-horizontal" >
+                                              
+                                                @csrf
+                                                @method('PATCH') 
+
                                                 <div class="form-body">
                                                         <div class="form-group">
-                                                            <label class="col-md-3 control-label">Nama Type Entitas</label>
+                                                            <label class="col-md-3 control-label">Nama Komponen Dasar</label>
                                                             <div class="col-md-6">
-                                                                <input type="text" name="entitas_type_name" class="form-control" placeholder="Enter text">
+                                                                <input type="text" name="komponen_name" class="form-control" value="{{ old('komponen_name', $post->komponen_name) }}" placeholder="Enter text">
                                                                 <!-- <span class="help-block"> A block of help text. </span> -->
                                                             </div>
                                                         </div>
@@ -76,7 +79,7 @@
                                                             <label class="col-md-3 control-label">Keterangan Singkat</label>
                                                             <div class="col-md-6">
                                                                
-                                                             <textarea rows="4" col="4" name="entitas_deskripsi" class="form-control"></textarea>
+                                                             <textarea rows="4" col="4" name="komponen_deskripsi" class="form-control">{{ old('komponen_deskripsi', $post->komponen_deskripsi) }}</textarea>
                                                             
                                                             </div>
                                                         </div>
@@ -86,7 +89,7 @@
                                                         <div class="row">
                                                             <div class="col-md-offset-3 col-md-9">
                                                                 <button type="submit" class="btn  green">Submit</button>
-                                                                <a href="{{ url('/master/type')}}" class="btn  grey-salsa btn-outline">Cancel</a>
+                                                                <a href="{{ url('/master/komponen')}}" class="btn  grey-salsa btn-outline">Cancel</a>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -64,11 +64,11 @@
                                                         <th>No</th>
                                                         <th>Nama Entitas</th>
                                                         <th>Type Entitas </th>
-                                                        <th>Alamat </th>
+                                                        <!-- <th>Alamat </th> -->
                                                         <th>Tanggal Registrasi</th>
                                                         <th>Status</th>
                                                        
-                                                        <th></th>
+                                                        <th>Actions</th>
 
                                                
                                             </tr>
@@ -133,7 +133,7 @@ $(function () {
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
                     {data: 'entitas_name', name: 'entitas_name'},
                     {data: 'entitas_type_name', name: 'entitas_type_name'},
-                    {data: 'entitas_address', name: 'entitas_address'},
+                    // {data: 'entitas_address', name: 'entitas_address'},
                     {data: 'date_created', name: 'date_created'},
                     {data: 'status', name: 'status'},
                 

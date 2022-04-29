@@ -20,7 +20,7 @@ class TypeController extends Controller
       
         //  return view('entitas type');
           return view('entitas/type',[
-              "title" => "Type Entitas",
+              "title" => "Type Entitas Syariah",
               "keusya" => "" 
           ]);
           
@@ -38,15 +38,15 @@ class TypeController extends Controller
                                         </button>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
-                                                <a href="javascript:;">
+                                                <a href="/master/type/edit/'.$row->entitas_type_id.'">
                                                     <i class="icon-note"></i> Edit </a>
                                             </li>
                                             <li>
-                                                <a href="javascript:;">
+                                                <a href="/master/type/view/'.$row->entitas_type_id.'">
                                                     <i class="icon-magnifier"></i> View </a>
                                             </li>
                                             <li>
-                                                <a href="javascript:;">
+                                                <a href="" data-id='.$row->entitas_type_id.' class="delete-confirm" >
                                                     <i class="icon-trash"></i> Delete</a>
                                             </li>
                                         
@@ -124,4 +124,77 @@ class TypeController extends Controller
                     ]);
             }
     }
+
+    
+    // view  halaman edit data
+    public function edit($id)
+    {
+        $type = Typeentitas::findOrFail($id);
+
+   
+        return view('entitas.edit-type', 
+        [
+            "title" => "Edit Type Entitas",
+            "type" => $type
+        ]);
+    }
+
+     // action update data
+     public function update(Request $request, $id)
+     {
+         $this->validate($request, [
+             'entitas_type_name' => 'required|string|max:255'
+          ]);
+ 
+         $uuid = Str::uuid()->toString(); 
+         $now = Carbon::now('Asia/jakarta')->format('Y-m-d H:i:s');
+         $post = Typeentitas::findOrFail($id);
+ 
+         $post->update([
+
+                 
+                'entitas_type_name' => $request->entitas_type_name,
+                'entitas_deskripsi' => $request->entitas_deskripsi,
+                'date_modified' =>  $now,
+                'modified_by' => $uuid
+         ]);
+ 
+         if ($post) {
+             return redirect()
+                 ->route('type')
+                 ->with([
+                     'success' => 'updated successfully'
+                 ]);
+         } else {
+             return redirect()
+                 ->back()
+                 ->withInput()
+                 ->with([
+                     'error' => 'Some problem has occured, please try again'
+                 ]);
+         }
+     }
+
+
+      // view data only
+    public function view($id)
+    {
+        $type = Typeentitas::findOrFail($id);
+
+        return view('entitas/view-type',[
+            "title" => "Type Entitas",
+            "type" => $type 
+        ]);
+
+        
+    }
+
+        // delete data 
+        public function delete($id){
+            $post = Typeentitas::findOrFail($id);
+            $post->delete();
+    
+        
+        }
+ 
 }

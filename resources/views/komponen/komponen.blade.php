@@ -29,7 +29,7 @@
                         <!-- BEGIN PAGE TOOLBAR -->
                         <div class="page-toolbar">
                             <div class="btn-group">
-                                    <a href="{{ url('/master/type/new')}}" class="btn sbold green" >
+                                    <a href="{{ url('/master/komponen/new')}}" class="btn sbold green" >
                                         Tambah Baru 
                                     </a>
                             </div>
@@ -68,7 +68,7 @@
                                             <tr>
                                                 <th></th>
 
-                                                <th>Entitas</th>
+                                                <th>Komponen</th>
                                                 <th>Deskripsi</th>
                                                 <th>Tanggal Dibuat</th>
 
@@ -124,28 +124,31 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
       
-
+    
         <script>
         $(function () {
             
             var table = $('#data-table-type').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('getType') }}",
+                ajax: "{{ route('getKomponen') }}",
                 columns: [
                     { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-                    {data: 'entitas_type_name', name: 'entitas_type_name'},
-                    {data: 'entitas_deskripsi', name: 'entitas_deskripsi'},
+                    {data: 'komponen_name', name: 'komponen_name'},
+                    {data: 'komponen_deskripsi', name: 'komponen_deskripsi'},
                     {data: 'date_created', name: 'date_created'},
                 
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
 
-            
+
+
             $(document).on('click', '.delete-confirm', function (e) {
                 e.preventDefault();
                 var id = $(this).data('id');
+
+                console.log(id);
 
                 new swal({
                         title: "Anda yakin akan menghapus?",
@@ -162,7 +165,7 @@
                                                        
                                             $.ajax({
                                                 type: "GET",
-                                                url: "{{url('/master/type/delete')}}"+ "/" + id,
+                                                url: "{{url('/master/komponen/delete')}}"+ "/" + id,
                                                 success: function (data) {
                                                         
                                                     toastr.success("Delete Data Sukses !");
@@ -189,9 +192,12 @@
             });
             
         });
-            
-     
-        </script>
+       
+
+
+       
+       
+       </script>
 
             @if (Session('success'))
             <script>

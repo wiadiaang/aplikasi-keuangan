@@ -13,6 +13,7 @@ class DashboardController extends Controller
       //  return view('home');
         return view('dashboard/dashboard',[
             "title" => "Dashboard",
+            "menu"  => "dashboard",
             "keusya" => "" 
         ]);
         

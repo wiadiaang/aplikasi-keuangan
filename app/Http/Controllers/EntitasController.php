@@ -16,6 +16,7 @@ class EntitasController extends Controller
       //  return view('home');
         return view('entitas/entitas',[
             "title" => "Keusya | Entitas Syariah",
+            "menu"  => "master",
             "keusya" => "" 
         ]);
         
@@ -32,22 +33,42 @@ class EntitasController extends Controller
                 ->addIndexColumn()
                 ->editColumn('status', function ($result) {
 
-                    
-                    if ($result->status == 1){
-                        $status = '<span class="label label-sm label-success"> Aktiv </span>';
-                        return $status ;
+                    if ($result->status === 1){
+                        $lable = '<span class="label label-sm label-success"> Aktiv </span>';
+                        return $lable ;
                     }else{
-                        $status = '<span class="label label-sm label-error"> Tidak Aktiv </span>';
-                        return $status;
+                        $lable = '<span class="label label-sm label-danger circle"> Tidak Aktiv </span>';
+                        return  $lable;
+                       
                     }
                    
                 })
                 ->addColumn('action', function($row){
-                    $actionBtn = '<a href="/entitas/edit/'.$row->entitas_id.'" class="btn btn-success">Edit</a>';
+                    $actionBtn = '
+                                    <div class="btn-group">
+                                        <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Actions
+                                            <i class="fa fa-angle-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="/entitas/edit/'.$row->entitas_id.'">
+                                                    <i class="icon-note"></i> Edit </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="icon-magnifier"></i> View </a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:;">
+                                                    <i class="icon-trash"></i> Delete</a>
+                                            </li>
+                                        
+                                        </ul>
+                                    </div>';
                     return $actionBtn;
                 })
                
-                ->rawColumns(['action'])
+                ->rawColumns(['action','status'])
                 ->make(true);
     }
 

@@ -12,6 +12,7 @@ class RekeningController extends Controller
       //  return view('home');
         return view('rekening/rekening',[
             "title" => "Rekening-keusya",
+            "menu"  => "active open",
             "keusya" => "" 
         ]);
         

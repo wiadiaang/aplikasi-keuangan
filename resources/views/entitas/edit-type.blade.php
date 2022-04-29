@@ -53,7 +53,7 @@
                             <div class="portlet box green">
                                             <div class="portlet-title">
                                                 <div class="caption">
-                                                    <i class="fa fa-gift"></i>Tambah Type Entitas Baru</div>
+                                                    <i class="fa fa-gift"></i>Edit {{ $title }} </div>
                                                 <div class="tools">
                                                     
                                                     <a href="javascript:;" class="reload" data-original-title="" title=""> </a>
@@ -62,13 +62,16 @@
                                             </div>
                                             <div class="portlet-body form">
                                                 <!-- BEGIN FORM-->
-                                                <form action="{{ route('type.store') }}"  method="POST" class="form-horizontal" >
-                                                @csrf    
+                                                <form action="{{ route('type.update',$type->entitas_type_id) }}"  method="POST" class="form-horizontal" >
+                                              
+                                                @csrf
+                                                @method('PATCH') 
+
                                                 <div class="form-body">
                                                         <div class="form-group">
-                                                            <label class="col-md-3 control-label">Nama Type Entitas</label>
+                                                            <label class="col-md-3 control-label">Type Entitas</label>
                                                             <div class="col-md-6">
-                                                                <input type="text" name="entitas_type_name" class="form-control" placeholder="Enter text">
+                                                                <input type="text" name="entitas_type_name" class="form-control" value="{{ old('entitas_type_name', $type->entitas_type_name) }}" placeholder="Enter text">
                                                                 <!-- <span class="help-block"> A block of help text. </span> -->
                                                             </div>
                                                         </div>
@@ -76,7 +79,7 @@
                                                             <label class="col-md-3 control-label">Keterangan Singkat</label>
                                                             <div class="col-md-6">
                                                                
-                                                             <textarea rows="4" col="4" name="entitas_deskripsi" class="form-control"></textarea>
+                                                             <textarea rows="4" col="4" name="entitas_deskripsi" class="form-control">{{ old('entitas_deskripsi', $type->entitas_deskripsi) }}</textarea>
                                                             
                                                             </div>
                                                         </div>
@@ -107,22 +110,15 @@
 
 @section('js')
 
-        <script src="{{ asset('assets/global/scripts/datatable.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('assets/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
-        <!-- END PAGE LEVEL PLUGINS -->
+               <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="{{ asset('assets/global/scripts/app.min.js') }}" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="{{ asset('assets/pages/scripts/table-datatables-responsive.min.js') }}" type="text/javascript"></script>
+      
         <!-- END PAGE LEVEL SCRIPTS -->
 
 
-        <script src="{{ asset('assets/global/scripts/datatable.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('assets/global/plugins/datatables/datatables.min.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js') }}" type="text/javascript"></script>
-        <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
 
 
