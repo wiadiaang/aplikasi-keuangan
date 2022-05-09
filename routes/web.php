@@ -57,3 +57,13 @@ Route::patch('/master/komponen/update/{id}', [App\Http\Controllers\KomponenContr
 Route::get('/master/komponen/delete/{id}', [App\Http\Controllers\KomponenController::class, 'delete'])->name('delete');
 Route::get('/master/komponen/view/{id}', [App\Http\Controllers\KomponenController::class, 'view'])->name('view');
 
+// Role Applikasi
+Route::get('master/role', [App\Http\Controllers\RoleController::class, 'index'])->name('role');
+Route::get('/master/role/new', [App\Http\Controllers\RoleController::class, 'create'])->name('create');
+Route::get('/master/role/get', [App\Http\Controllers\RoleController::class, 'getRole'])->name('getRole');
+Route::post('/master/role/store', [App\Http\Controllers\RoleController::class, 'store'])->name('role.store');
+Route::get('/master/komponen/edit/{id}', [App\Http\Controllers\RoleController::class, 'edit'])->name('komponen.edit');
+Route::patch('/master/komponen/update/{id}', [App\Http\Controllers\RoleController::class, 'update'])->name('komponen.update');
+Route::get('/master/komponen/delete/{id}', [App\Http\Controllers\RoleController::class, 'delete'])->name('delete');
+Route::get('/master/komponen/view/{id}', [App\Http\Controllers\RoleController::class, 'view'])->name('view');
+
