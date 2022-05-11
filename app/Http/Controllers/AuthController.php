@@ -95,7 +95,8 @@ class AuthController extends Controller
                'date_modified' => null,
                'created_by' => $uuid2,
                'modified_by' => null,
-               'status' => "1"
+               'status' => true,
+               'role_id' => 2
                         
                         
             ]);
@@ -115,7 +116,7 @@ class AuthController extends Controller
                 'created_by' => $uuid2,
                 'modified_by' => null,
                 'entitas_address' => "",
-                'status' => "0",
+                'status' => false,
                 
                 
             ]);

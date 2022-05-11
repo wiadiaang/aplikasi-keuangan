@@ -1,10 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
-namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Role;
 use DataTables;
@@ -24,7 +20,7 @@ class RoleController extends Controller
     {
           //  return view('home');
           return view('role/roleView',[
-            "title" => "Role Application",
+            "title" => "Hak Akses",
             "keusya" => "" 
         ]);
     }
@@ -47,7 +43,7 @@ class RoleController extends Controller
                                                     <i class="icon-note"></i> Edit </a>
                                             </li>
                                             <li>
-                                                <a href="/master/role/view/'.$row->role_id.'">
+                                                <a href="/master/role/show/'.$row->role_id.'">
                                                     <i class="icon-magnifier"></i> View </a>
                                             </li>
                                             <li>
@@ -61,18 +57,18 @@ class RoleController extends Controller
                                     </div>';
                     return $actionBtn;
                 })
-                ->editColumn('read', function ($result) {
+                // ->editColumn('read', function ($result) {
 
-                    if ($result->read === true){
-                        $lable = ' <input type="checkbox" class="group-checkable" data-set="#sample_5 .checkboxes">';
-                        return $lable ;
-                    }else{
-                        $lable = '';
-                        return  $lable;
+                //     if ($result->read === true){
+                //         $lable = ' <input type="checkbox" name="execute" checked  class="icheck" disabled>';
+                //         return $lable ;
+                //     }else{
+                //         $lable = '';
+                //         return  $lable;
                        
-                    }
+                //     }
                    
-                })
+                // })
 
                 // <a href="/type/edit/'.$row->entitas_type_id.'" class="btn btn-success">Edit</a>
                     
@@ -93,13 +89,10 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $type = Typeentitas::get_all_type();
-
-
-
+       
          return view('role/roleCreate',[
-            "title" => "Role Application",
-            "type" => $type  
+            "title" => "Hak Akses",
+            "type" => ''  
         ]);
     }
 
@@ -141,8 +134,6 @@ class RoleController extends Controller
              ]);
 
 
-             // var_dump($post);die();
-
              if ($post) {
                 return redirect()
                     ->route('role')
@@ -165,9 +156,14 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Role $role)
+    public function show($id)
     {
-        //
+        $role = role::findOrFail($id);
+
+        return view('role/roleShow',[
+            "title" => "Hak Akses",
+            "role" => $role 
+        ]);
     }
 
     /**
@@ -176,9 +172,15 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Role $role)
+    public function edit($id)
     {
         //
+        $post = role::findOrFail($id);
+        return view('role/roleEdit', 
+        [
+            "title" => "Edit Hak Akses",
+            "post" => $post
+        ]);
     }
 
     /**
@@ -188,9 +190,42 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRoleRequest $request, Role $role)
+    public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'role_name' => 'required|string|max:255'
+         ]);
+
+        $uuid = Str::uuid()->toString(); 
+        $now = Carbon::now('Asia/jakarta')->format('Y-m-d H:i:s');
+        $post = role::findOrFail($id);
+
+        $post->update([
+            'role_name' => $request->role_name,
+            'read' => $request->read,
+            'write' => $request->write,
+            'execute' => $request->execute,
+           
+            'date_modified' => $now,
+       
+            'modified_by' => $uuid
+        ]);
+
+        if ($post) {
+            return redirect()
+                ->route('role')
+                ->with([
+                    'success' => 'updated successfully'
+                ]);
+        } else {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with([
+                    'error' => 'Some problem has occured, please try again'
+                ]);
+        }
     }
 
     /**
@@ -199,8 +234,9 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
+    public function delete($id)
     {
-        //
+        $post = role::findOrFail($id);
+        $post->delete();
     }
 }

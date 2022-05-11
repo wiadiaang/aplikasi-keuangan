@@ -33,7 +33,7 @@ class EntitasController extends Controller
                 ->addIndexColumn()
                 ->editColumn('status', function ($result) {
 
-                    if ($result->status === 1){
+                    if ($result->status === true){
                         $lable = '<span class="label label-sm label-success"> Aktiv </span>';
                         return $lable ;
                     }else{

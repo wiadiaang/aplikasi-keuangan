@@ -40,9 +40,15 @@ Route::get('/master/type/view/{id}', [App\Http\Controllers\TypeController::class
 Route::get('/master/entitas', [App\Http\Controllers\EntitasController::class, 'index'])->name('entitas');
 Route::get('/master/entitas/get', [App\Http\Controllers\EntitasController::class, 'getEntitas'])->name('getEntitas');
 
-// user
+// master user
 Route::get('/master/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
-Route::post('/master/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
+Route::get('/master/user/new', [App\Http\Controllers\UserController::class, 'create'])->name('create');
+Route::get('/master/user/get', [App\Http\Controllers\UserController::class, 'getUser'])->name('getUser');
+Route::post('/master/user/store', [App\Http\Controllers\UserController::class, 'store'])->name('user.store');
+Route::get('/master/user/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+Route::patch('/master/user/update/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+Route::get('/master/user/delete/{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('delete');
+Route::get('/master/user/show/{id}', [App\Http\Controllers\UserController::class, 'show'])->name('show');
 
 // rekekning
 Route::get('/master/rekening', [App\Http\Controllers\RekeningController::class, 'index'])->name('rekening');
@@ -62,8 +68,8 @@ Route::get('master/role', [App\Http\Controllers\RoleController::class, 'index'])
 Route::get('/master/role/new', [App\Http\Controllers\RoleController::class, 'create'])->name('create');
 Route::get('/master/role/get', [App\Http\Controllers\RoleController::class, 'getRole'])->name('getRole');
 Route::post('/master/role/store', [App\Http\Controllers\RoleController::class, 'store'])->name('role.store');
-Route::get('/master/komponen/edit/{id}', [App\Http\Controllers\RoleController::class, 'edit'])->name('komponen.edit');
-Route::patch('/master/komponen/update/{id}', [App\Http\Controllers\RoleController::class, 'update'])->name('komponen.update');
-Route::get('/master/komponen/delete/{id}', [App\Http\Controllers\RoleController::class, 'delete'])->name('delete');
-Route::get('/master/komponen/view/{id}', [App\Http\Controllers\RoleController::class, 'view'])->name('view');
+Route::get('/master/role/edit/{id}', [App\Http\Controllers\RoleController::class, 'edit'])->name('role.edit');
+Route::patch('/master/role/update/{id}', [App\Http\Controllers\RoleController::class, 'update'])->name('role.update');
+Route::get('/master/role/delete/{id}', [App\Http\Controllers\RoleController::class, 'delete'])->name('delete');
+Route::get('/master/role/show/{id}', [App\Http\Controllers\RoleController::class, 'show'])->name('show');
 

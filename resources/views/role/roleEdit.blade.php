@@ -62,13 +62,14 @@
                                             </div>
                                             <div class="portlet-body form">
                                                 <!-- BEGIN FORM-->
-                                                <form action="{{ route('role.store') }}"  method="POST" class="form-horizontal" >
-                                                @csrf    
+                                                <form action="{{ route('role.update',$post->role_id)  }}"  method="POST" class="form-horizontal" >
+                                                @csrf
+                                                @method('PATCH') 
                                                 <div class="form-body">
                                                         <div class="form-group">
                                                             <label class="col-md-3 control-label">Nama Role</label>
                                                             <div class="col-md-6">
-                                                                <input type="text" name="role_name" class="form-control" placeholder="Enter text">
+                                                                <input type="text" name="role_name" class="form-control" value="{{ old('role_name', $post->role_name) }}" placeholder="Enter text">
                                                                 <!-- <span class="help-block"> A block of help text. </span> -->
                                                             </div>
                                                         </div>
@@ -79,16 +80,36 @@
                                                                         <div class="input-group">
                                                                             <div class="icheck-list">
                                                                                 <label>
-                                                                                    <input type="checkbox" name="read"  class="icheck"> Read </label>
+                                                                                            @if ($post->read === true)
+                                                                                                <input type="checkbox" name="read" checked value="{{ old('read', $post->read) }}" class="icheck">
+                                                                                            @else
+                                                                                                <input type="checkbox" name="read"  class="icheck">                                                                                              
+                                                                                            @endif
+
+                                                                                            Read </label>
                                                                                 <label>
-                                                                                    <input type="checkbox" name="write"   class="icheck"> Write </label>
+                                                                                            @if ($post->write === true)
+                                                                                                <input type="checkbox" name="write" checked value="{{ old('write', $post->write) }}" class="icheck">
+                                                                                            @else
+                                                                                                <input type="checkbox" name="write"  class="icheck">                                                                                              
+                                                                                            @endif
+
+                                                                                            Write </label>
+                                                                                   
                                                                                 <label>
-                                                                                    <input type="checkbox" name="execute"  class="icheck"> Execute </label>
+                                                                                            @if ($post->execute === true)
+                                                                                                <input type="checkbox" name="execute" checked value="{{ old('execute', $post->execute) }}" class="icheck">
+                                                                                            @else
+                                                                                                <input type="checkbox" name="execute"  class="icheck">                                                                                              
+                                                                                            @endif
+
+                                                                                            Execute </label>
+                                                                                    
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                         </div>
- 
+                                                     
                                             
                                                     </div>
                                                     <div class="form-actions">

@@ -23,7 +23,7 @@ class Role extends Model
     public $incrementing = false;
 
 
-    public static function get_all_komponen(){
+    public static function get_all_role(){
         $query = Db::table('role')
                 ->select('role_id','role_name')
                 ->get();
