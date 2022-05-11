@@ -46,14 +46,15 @@
                     <div class="login-content">
                         <h1>Keusya Login</h1>
                         <p> Lorem ipsum dolor sit amet, coectetuer adipiscing elit sed diam nonummy et nibh euismod aliquam erat volutpat. Lorem ipsum dolor sit amet, coectetuer adipiscing. </p>
-                        <form action="javascript:;" class="login-form" method="post">
+                        <form action="{{ route('loginAction') }}" class="login-form" method="POST">
+                            @csrf
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
                                 <span>Enter any username and password. </span>
                             </div>
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Username" name="username" required/> </div>
+                                    <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Username" name="email" required/> </div>
                                 <div class="col-xs-6">
                                     <input class="form-control form-control-solid placeholder-no-fix form-group" type="password" autocomplete="off" placeholder="Password" name="password" required/> </div>
                             </div>
@@ -71,6 +72,7 @@
                                         <a href="javascript:;" id="forget-password" class="forget-password">Forgot Password?</a>
                                     </div>
                                     <button class="btn green" type="submit">Sign In</button>
+                                    <p class="sign-up">Don't have an Account?<a href="{{ route('register') }}"> Sign Up</a></p>
                                 </div>
                             </div>
                         </form>

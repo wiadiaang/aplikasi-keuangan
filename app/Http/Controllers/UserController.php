@@ -261,4 +261,24 @@ class UserController extends Controller
         }
     }
 
+     // view data only
+     public function show($id)
+     {
+         $user = User::findOrFail($id);
+ 
+         return view('user/userView',[
+             "title" => "User",
+             "user" => $user 
+         ]);
+ 
+         
+     }
+
+       // delete data 
+    public function delete($id){
+        $post = User::findOrFail($id);
+        $post->delete();
+
+    }
+
 }

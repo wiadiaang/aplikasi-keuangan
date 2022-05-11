@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; // baru
 use App\Models\Register; // load Register model
 use App\Models\user; // load User model
 use App\Models\Typeentitas; // load Typeentitas model
 use Hash;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 class AuthController extends Controller
 {
@@ -26,14 +28,35 @@ class AuthController extends Controller
 
 
     //fungsi untuk post data login
-    public function login_action()
+    public function login_action(Request $request)
     {
         
-        return view('auth/login',[
-            "title" => "Login-Keuangan Syariah",
-            "keusya" => "" 
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required'
         ]);
+
+        $credentials = $request->only('email','password'); 
+
+        $user = User::where('email',$request->email)->first();
+
+       // var_dump($credentials);die();
+
+        if (Auth::attempt($credentials)) {
+
+            return redirect()->intended('dashboard')
+                        ->withSuccess('You have Successfully logged in');
+        }
+    
+        return redirect("dashboard")->withSuccess('Sorry! You have entered invalid credentials');
         
+    }
+
+    public function logout() {
+        Session::flush();
+        Auth::logout();
+  
+        return Redirect('');
     }
 
 
