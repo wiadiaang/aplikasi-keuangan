@@ -1,2 +1,2 @@
 # aplikasi-keuangan-syariah
-project aplikasi keuangan syariah - Masyarakat Keuangan Syariah
+project aplikasi keuangan syariah - Masyarakat Ekonomi Syariah MES
