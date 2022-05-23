@@ -272,8 +272,8 @@
     $("#add").click(function(){
    
         ++i;
-   
-        $("#dynamicTable").append('<tr><td> <select name="addMore['+i+'][group_id]" class="form-control" > <option value="">pilih salah satu</option>  @foreach ($account as $bg) <option value="{{ $bg->account_id }}">{{ $bg->account_name }}</option> @endforeach   </select></td><td><input name="addMore['+i+'][debit]" type="number" class="form-control"><span class="input-group-btn">  <button class="btn grey" type="button">IDR</button>   </span> </div> </td><td> <input name="addMore['+i+'][credit]" type="number" class="form-control"> <span class="input-group-btn"> <button class="btn grey" type="button">IDR</button></span> </div></td><td><button type="button" class="btn btn-danger remove-tr">X</button></td></tr>');
+        //dynamic
+        $("#dynamicTable").append('<tr><td> <select name="addMore['+i+'][group_id]" class="form-control" > <option value="">pilih salah satu</option>  @foreach ($account as $bg) <option value="{{ $bg->account_id }}">{{ $bg->account_name }}</option> @endforeach   </select></td><td><div class="input-group"><input name="addMore['+i+'][debit]" type="number" class="form-control"><span class="input-group-btn">  <button class="btn grey" type="button">IDR</button>   </span> </div></div> </td><td><div class="input-group"> <input name="addMore['+i+'][credit]" type="number" class="form-control"> <span class="input-group-btn"> <button class="btn grey" type="button">IDR</button></span> </div></div></td><td><button type="button" class="btn btn-danger remove-tr">X</button></td></tr>');
     });
    
     $(document).on('click', '.remove-tr', function(){  
