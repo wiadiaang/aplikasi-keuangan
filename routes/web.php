@@ -93,6 +93,34 @@ Route::group(['prefix' => 'master/role', 'middleware' => 'customAuth'], function
    
 });
 
+// Rekening
+Route::group(['prefix' => 'master/rekening', 'middleware' => 'customAuth'], function () {
+    Route::get('/',[App\Http\Controllers\RekeningController::class, 'index'])->name('index');
+    Route::get('/balance/group',[App\Http\Controllers\RekeningController::class, 'createGroupBalance'])->name('createGroupBalance');
+    Route::get('/balance/account', [App\Http\Controllers\RekeningController::class, 'createAccountBalance'])->name('createAccountBalance');
+    Route::post('/store/group', [App\Http\Controllers\RekeningController::class, 'storeGroup'])->name('storeGroup');
+    Route::post('/store/account', [App\Http\Controllers\RekeningController::class, 'storeAccountBalance'])->name('storeAccountBalance');
+    Route::get('/profit/group',[App\Http\Controllers\RekeningController::class, 'createGroupProfit'])->name('createGroupProfit');
+    Route::post('/store/group-profit', [App\Http\Controllers\RekeningController::class, 'storeGroupProfit'])->name('storeGroupProfit');
+    Route::get('/profit/account', [App\Http\Controllers\RekeningController::class, 'createAccountProfit'])->name('createAccountProfit');
+    Route::post('/store/account-profit', [App\Http\Controllers\RekeningController::class, 'storeAccountProfit'])->name('storeAccountProfit');
+   
+});
+
+// Jurnal 
+Route::group(['prefix' => '/jurnal', 'middleware' => 'customAuth'], function () {
+    Route::get('/',[App\Http\Controllers\JurnalController::class, 'index'])->name('jurnal');
+    Route::get('/get',[App\Http\Controllers\JurnalController::class, 'getJurnal'])->name('getJurnal');
+    Route::get('/new', [App\Http\Controllers\JurnalController::class, 'create'])->name('create');
+    Route::post('/post', [App\Http\Controllers\JurnalController::class, 'jurnalStore'])->name('jurnalStore');
+    // Route::post('/store', [App\Http\Controllers\RoleController::class, 'store'])->name('role.store');
+    // Route::get('/edit/{id}',[App\Http\Controllers\RoleController::class, 'edit'])->name('role.edit');
+    // Route::patch('/update/{id}',[App\Http\Controllers\RoleController::class, 'update'])->name('role.update');
+    // Route::get('/delete/{id}', [App\Http\Controllers\RoleController::class, 'delete'])->name('delete');
+    // Route::get('/show/{id}', [App\Http\Controllers\RoleController::class, 'show'])->name('show');
+   
+});
+// Route::get('/master/rekening', [App\Http\Controllers\RekeningController::class, 'index'])->name('rekening');
 
 
 
@@ -107,7 +135,7 @@ Route::group(['prefix' => 'master/role', 'middleware' => 'customAuth'], function
 // Route::get('/master/user/show/{id}', [App\Http\Controllers\UserController::class, 'show'])->name('show');
 
 // rekekning
-Route::get('/master/rekening', [App\Http\Controllers\RekeningController::class, 'index'])->name('rekening');
+
 
 // Komponen Dasar akunting
 // Route::get('master/komponen', [App\Http\Controllers\KomponenController::class, 'index'])->name('komponen');

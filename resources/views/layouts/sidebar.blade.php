@@ -39,11 +39,11 @@
                              <span class="title">Entitas</span>
                          </a>
                      </li>
-                     <li class="nav-item {{ (request()->segment(2) == 'komponen') ? 'active open' : '' }}">
+                     <!-- <li class="nav-item {{ (request()->segment(2) == 'komponen') ? 'active open' : '' }}">
                          <a href="{{ url('/master/komponen')}}" class="nav-link ">
                              <span class="title">Komponen</span>
                          </a>
-                     </li>
+                     </li> -->
                      <li class="nav-item {{ (request()->segment(2) == 'rekening') ? 'active open' : '' }}">
                          <a href="{{ url('/master/rekening')}}" class="nav-link ">
                              <span class="title">Rekening</span>
@@ -63,12 +63,12 @@
                  </ul>
              </li>
              <li class="nav-item {{ (request()->segment(1) == 'transaksi') ? 'active open' : '' }}">
-                 <a href="javascript:;" class="nav-link nav-toggle">
+                 <a href="{{ url('/jurnal')}}" class="nav-link">
                      <i class="icon-puzzle"></i>
-                     <span class="title">Transaksi</span>
-                     <span class="arrow"></span>
+                     <span class="title">Jurnal</span>
+                     <!-- <span class="arrow"></span> -->
                  </a>
-                 <ul class="sub-menu">
+                 <!-- <ul class="sub-menu">
                      <li class="nav-item {{ (request()->segment(2) == 'aset') ? 'active open' : '' }}">
                          <a href="{{ url('/')}}" class="nav-link ">
                              <span class="title">Aset</span>
@@ -111,7 +111,7 @@
                          </a>
                      </li>
                 
-                 </ul>
+                 </ul> -->
              </li>
              <li class="nav-item{{ (request()->segment(1) == 'laporan') ? 'active open' : '' }}">
                  <a href="javascript:;" class="nav-link nav-toggle">
