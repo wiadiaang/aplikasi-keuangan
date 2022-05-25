@@ -22,12 +22,29 @@
     <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets_old/css/register.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('fonts/material-icon/css/material-design-iconic-font.css') }} ">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
+    <style>
+        .not-match {
+            font-size: 12px;
+            color: red;
+            font-weight: 700;
+        }
+
+        .agreement input.active,
+        .agreement label.active {
+            color: red;
+        }
+    </style>
 </head>
 
+
+
 <body>
-    <div class="app">
+    {{-- <div class="app">
         <div class="authentication">
             <div class="sign-up">
                 <div class="row no-mrg-horizon">
@@ -56,9 +73,6 @@
                     <div class="col-md-8 bg-white no-pdd-horizon">
                         <div class="row">
                             <div class="col-md-6">
-
-
-                        
 
                                 <div class="full-height height-100">
                                     <div class="vertical-align full-height pdd-horizon-70">
@@ -115,7 +129,61 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+    <div class="wraper">
+        <div class="main">
+            <form action="{{ route('register.post') }}" method="POST" >
+                @csrf
+            <section class="signup">
+                <!-- <img src="images/signup-bg.jpg" alt=""> -->
+                <div class="container">
+                    <div class="signup-content">
+                        <form method="POST" id="signup-form" class="signup-form">
+                            <h2 class="form-title">Create account</h2>
+                            <div class="form-group">
+                                <input type="text" class="form-input @error('entitas') is-invalid @enderror" name="entitas" id="entitas" placeholder="Entitas Syariah" required/>
+                            </div>
+    
+                            <div class="form-group">
+                                <label class="text-normal text-dark">Type Entitas</label>
+                                <select name="type" class="form-input @error('type') is-invalid @enderror" placeholder="Type Entitas etc, Masjid" name="type" required>
+                                <option value="">pilih salah satu</option>
+                                @foreach ($type as $types)
+                                    <option value="{{ $types->entitas_type_id }}">{{ $types->entitas_type_name }}</option>
+                                @endforeach    
+                                
+                                </select>
+                            </div>
+    
+                            <div class="form-group">
+                                <input type="email" class="form-input @error('email') is-invalid @enderror" name="email" id="email" placeholder="Your Email" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-input password-new @error('password') is-invalid @enderror"  name="password" id="password-f" placeholder="Password" required/>
+                                <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                            </div>
+                            <div class="form-group w-not-match">
+                                <input type="password" class="form-input @error('repassword') is-invalid @enderror" name="repassword" id="re_password-f" placeholder="Repeat your password" required/>
+                            </div>
+                            <div class="form-group agreement">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" id="btnSubmit" class="form-submit" value="Sign up"/>
+                            </div>
+                        </form>
+                        <p class="loginhere">
+                            Have already an account ? <a href="{{ route('login') }}" class="loginhere-link">Login here</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            </form>
+    
+        </div>
     </div>
+   
 
     <script src="{{ asset('assets/js/vendor.js') }}"></script>
 
@@ -125,27 +193,70 @@
     <!-- page js -->
 
     <script>
-        $('#password, #repassword').on('keyup', function () {
-            if ($('#password').val() == $('#repassword').val()) {
+       
+        let statusCheckbox = false;
+        $('#re_password-f').on('keyup', function () { 
+            var a = 0;
+                if ($('#password-f').val() == $('#re_password-f').val()) {
+                    // toastr.success("Password Sama");
+                    console.log("password sama")
+                    a = 1;
+            
+                } else {
+                    // toastr.error("Password Tidak Sama");
+                    console.log("password tidak sama")
+                    if($('.w-not-match').children().length < 2){
+                        $('.w-not-match').append(`<span class="not-match">Password not match</span>`)
+                    }
+                    return false;
+                }
 
-                toastr.success("Password Sama");
-               
-            } else 
-            toastr.error("Password Tidak Sama");
-        });    
+                if(a == 1){
+                    $('.not-match').remove()
+                }
+        });
+
+        $('#agree-term').on('change', function(){
+            let thisbox = this;
+            if(thisbox.checked == true){
+                $('.agreement input, .agreement label').removeClass("active");
+                statusCheckbox = true;
+            }else {
+                statusCheckbox = false;
+            }
+        })
+
     </script>
 
 <script type="text/javascript">
     $(function () {
         $("#btnSubmit").click(function () {
-            var password = $("#password").val();
-            var confirmPassword = $("#repassword").val();
+            var password = $("#password-f").val();
+            var confirmPassword = $("#re_password-f").val();
             if (password != confirmPassword) {
-                alert("Passwords do not match.");
+                // alert("Passwords do not match.");
                 return false;
             }
+
+            if (!statusCheckbox){
+                
+                $('.agreement input, .agreement label').addClass("active");
+                return false;
+            }
+
             return true;
+            
         });
+        $(".toggle-password").click(function() {
+            console.log("success");
+            $(this).toggleClass("zmdi-eye zmdi-eye-off");
+            var pass = $(".password-new");
+            if (pass.attr("type") == "password") {
+                pass.attr("type", "text");
+            } else {
+                pass.attr("type", "password");
+            }
+            });
     });
 </script>
 

@@ -5,11 +5,8 @@
 
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-	
-        <!-- <link href="{{ asset('/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css') }}" rel="stylesheet" type="text/css" /> -->
-        <link href="{{ asset('/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css') }}" rel="stylesheet" type="text/css" />
-        <!-- <link href="{{ asset('/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css" /> -->
-
+        {{-- <!-- <link href="{{ asset('/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css') }}" rel="stylesheet" type="text/css" /> --> --}}
+        {{-- <!-- <link href="{{ asset('/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css" /> --> --}}
         <!-- <link href="{{ asset('/assets/global/plugins/clockface/css/clockface.css') }}" rel="stylesheet" type="text/css" /> -->
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- END PAGE LEVEL PLUGINS -->
@@ -112,7 +109,7 @@
 
                                                      <div class="form-body">
 
-                                                        <div class="row">
+                                                        <div class="row" style="margin: 0;">
                                                             
                                                          
 															
@@ -125,10 +122,14 @@
 																						<i class="fa fa-calendar"></i>
 																					</button>
 																		</span>
-                                                                        <input type="text" name="tanggal" class="form-control" > </div>
+                                                                        <input type="text" name="tanggal" class="form-control date" > </div>
 																	   
 																	</div>
 														 </div>
+                                                         <div class="container">
+                                                            <br />
+                                                         
+                                                          </div>
                                                             <!-- /.col-md-6 -->
 															<div class="col-md-4">
                                                                     <div class="form-group">
@@ -142,7 +143,7 @@
                                                             
                                                         </div>
 
-                                                        <div class="row">
+                                                        <div class="row" style="margin: 0;">
 															     <div class="col-md-7">
 																
                                                                     <div class="form-group">
@@ -258,15 +259,16 @@
 @section('js')
   <!-- BEGIN PAGE LEVEL PLUGINS -->
         <!-- <script src="{{ asset('/assets/global/plugins/moment.min.js') }}" type="text/javascript"></script> -->
-        
-        <script src="{{ asset('/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/global/scripts/app.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('assets/pages/scripts/ui-toastr.min.js') }}" type="text/javascript"></script>
         <!-- END PAGE LEVEL PLUGINS -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-<script>
 
+
+
+<script>
+   
  var i = 0;
        
     $("#add").click(function(){
