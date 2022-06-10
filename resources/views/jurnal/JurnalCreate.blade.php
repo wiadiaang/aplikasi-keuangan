@@ -131,7 +131,7 @@
                                                          
                                                           </div>
                                                             <!-- /.col-md-6 -->
-															<div class="col-md-4">
+															<!-- <div class="col-md-4">
                                                                     <div class="form-group">
                                                                             <label>Referensi</label>
                                                                              <div class="input-group input-medium">
@@ -139,7 +139,7 @@
                                                                             <input type="checkbox"> </span>
                                                                         <input type="text" name="referensi" class="form-control" placeholder="No referensi"> </div>
 																	</div>
-															</div>
+															</div> -->
                                                             
                                                         </div>
 
@@ -148,7 +148,7 @@
 																
                                                                     <div class="form-group">
 																		 
-                                                                            <label>Narasi</label>
+                                                                            <label>Keterangan Tambahan (bila diperlukan)</label>
                                                                              
 																				
 																					<textarea  name="narasi" class="form-control" placeholder=""></textarea>
